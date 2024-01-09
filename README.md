@@ -76,3 +76,10 @@ pytest --testdox -vvs caminho/para/o/arquivo/de/teste::NomeDaClasse::nome_do_met
 ```shell
 pytest --testdox -vvs tests/accounts/tests_views.py::TestLoginAccountView::test_login_without_required_fields
 ```
+
+Para rodar a documentação, voçê preciso estar rodando a API e entrar no link:
+```python
+python manage.py runserver
+```
+
+link: https://projeto-final-m5.onrender.com/api/docs/
