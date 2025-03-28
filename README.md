@@ -1,85 +1,117 @@
+Olá! Com base no repositório que você forneceu, aqui está um exemplo de README.md para ajudá-lo a inicializar o projeto:
+
+```markdown
 # M5 - Projeto Final Kanvas
 
-## Preparando ambiente para execução dos testes
+## Descrição
 
-1. Verifique se os pacotes **pytest**, **pytest-testdox** e/ou **pytest-django** estão instalados globalmente em seu sistema:
-```shell
+O projeto "M5 - Projeto Final Kanvas" é uma aplicação desenvolvida como trabalho final do Módulo 5 do bootcamp FullStack na Kenzie Academy Brasil. Trata-se de uma API para gerenciamento de cursos e aulas de uma escola na modalidade de Ensino a Distância (EAD). Utilizando Python com Django e Django Rest Framework, a aplicação permite a criação de usuários (estudantes ou superusuários), autenticação via JSON Web Token (JWT), criação e listagem de cursos, onde estudantes visualizam apenas os cursos nos quais estão matriculados. O projeto utiliza PostgreSQL como banco de dados e inclui documentação com Swagger.
+
+## Pré-requisitos
+
+Antes de iniciar, certifique-se de ter os seguintes pacotes instalados globalmente em seu sistema:
+
+- `pytest`
+- `pytest-testdox`
+- `pytest-django`
+
+Você pode verificar se eles estão instalados executando:
+
+```bash
 pip list
 ```
 
-2. Caso eles apareçam na listagem, rode os comandos abaixo para realizar a desinstalação:
+Se os pacotes aparecerem na listagem, desinstale-os com:
 
-```shell
+```bash
 pip uninstall pytest pytest-testdox pytest-django -y
 ```
 
-3. Após isso, crie seu ambiente virtual:
-```shell
-python -m venv venv
-```
+## Configuração do Ambiente
 
-4. Ative seu ambiente virtual:
+1. **Crie um ambiente virtual:**
 
-```shell
-# Linux e Mac:
-source venv/bin/activate
+   ```bash
+   python -m venv venv
+   ```
 
-# Windows (PowerShell):
-.\venv\Scripts\activate
+2. **Ative o ambiente virtual:**
 
-# Windows (GitBash):
-source venv/Scripts/activate
-```
+   - **Linux e Mac:**
 
-5. Instale as bibliotecas necessárias:
+     ```bash
+     source venv/bin/activate
+     ```
 
-```shell
-pip install model_bakery pytest-testdox pytest-django
-```
+   - **Windows (PowerShell):**
 
+     ```bash
+     .\venv\Scripts\activate
+     ```
 
-## Execução dos testes:
+   - **Windows (GitBash):**
 
-Para rodar a bateria de todos os testes, utilize:
-```shell
+     ```bash
+     source venv/Scripts/activate
+     ```
+
+3. **Instale as dependências necessárias:**
+
+   ```bash
+   pip install model_bakery pytest-testdox pytest-django
+   ```
+
+## Execução dos Testes
+
+Para rodar a bateria de testes, utilize o comando:
+
+```bash
 pytest --testdox -vvs
 ```
----
 
-Caso você tenha interesse em rodar apenas um diretório de testes específico, utilize os comandos abaixo:
+## Estrutura do Projeto
 
-Accounts:
-```python
-pytest --testdox -vvs tests/accounts/
+A estrutura de diretórios do projeto é a seguinte:
+
+```
+Projeto-Final-Python/
+├── _core/
+├── accounts/
+├── contents/
+├── courses/
+├── students_courses/
+├── tests/
+├── .env.example
+├── .gitignore
+├── README.md
+├── build.sh
+├── manage.py
+├── pytest.ini
+└── requirements.txt
 ```
 
-Contents:
-```python
-pytest --testdox -vvs tests/contents/
-```
+## Configuração do Ambiente
 
-Courses:
-```python
-pytest --testdox -vvs tests/courses/
-```
+1. **Crie um arquivo `.env`** na raiz do projeto baseado no arquivo `.env.example` fornecido. Este arquivo deve conter as variáveis de ambiente necessárias para a configuração da aplicação.
 
----
+2. **Instale as dependências do projeto:**
 
-Você também pode rodar cada método de teste isoladamente:
+   ```bash
+   pip install -r requirements.txt
+   ```
 
-```shell
-pytest --testdox -vvs caminho/para/o/arquivo/de/teste::NomeDaClasse::nome_do_metodo_de_teste
-```
+3. **Execute as migrações do banco de dados:**
 
-**Exemplo**: executar somente "test_user_login_without_required_fields".
+   ```bash
+   python manage.py migrate
+   ```
 
-```shell
-pytest --testdox -vvs tests/accounts/tests_views.py::TestLoginAccountView::test_login_without_required_fields
-```
+4. **Inicie o servidor de desenvolvimento:**
 
-Para rodar a documentação, voçê preciso estar rodando a API e entrar no link:
-```python
-python manage.py runserver
-```
+   ```bash
+   python manage.py runserver
+   ```
 
-link: https://projeto-final-m5.onrender.com/api/docs/
+## Contribuição
+
+Contribuições são bem-vindas! Sinta-se à vontade para abrir issues ou enviar pull requests.
