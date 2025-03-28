@@ -1,5 +1,3 @@
-Olá! Com base no repositório que você forneceu, aqui está um exemplo de README.md para ajudá-lo a inicializar o projeto:
-
 ```markdown
 # M5 - Projeto Final Kanvas
 
